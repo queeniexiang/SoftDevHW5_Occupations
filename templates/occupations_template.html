@@ -1,10 +1,62 @@
+<!--
+Queenie Xiang and Kelly Wang 
+SoftDev1 pd7
+HW5 -- Jinja Tuning
+2017-09-26
+-->
+
 <! DOCTYPE HTML>
 
 <html>
   <head>
-    <title>    </title>
-  </head> 
-  <body>
+   <h1> <center> Occupations Information </center> </h1>
+    <title> Occupations Information
+    </title>
+  </head>
+  <style>
+    table, td, th {
+    border: 1px solid black;
+    text-align: left;
+    }
+    
+    table {
+    border-collapse: collapse;
+    }
+    
+    td {
+    padding: 10px;
+    }
 
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+
+    th {
+    padding: 10px;
+    background-color: black;
+    color: white; 
+    }
+  </style>
+  <body>
+    <center>
+    <table style="border:1px solid black; border-collapse:collapse";> 
+      <tr style="border:1px solid black">
+	<th> {{Job}} </th>
+	<th> {{Percentage}} </th>
+      </tr>
+    {% for job in occupations%}
+    <tr>
+      <td>{{job}}</td>
+      <td>{{occupations[job][0]}}</td>
+    </tr>
+    {% endfor %}
+      <tr>
+	<td> <b> Randomly selected occupation: </b> </td>
+	<td> <b>{{rand_occ}} </b> </td>
+      </tr>
+    </table>
+
+    <br>(Please refresh the page for a new random occupation) 
+    
   </body>
 </html>
