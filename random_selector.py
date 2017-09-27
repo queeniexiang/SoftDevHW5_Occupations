@@ -10,24 +10,23 @@ occupations = {}
 
 def ret_occ():
     i = 0
+    counter = 0
+    
     #Opening and reading file
     f = open("occupations.csv", 'rU')
-    stuff = f.read();
+    occ_lst = f.read();
 
-    #Turning data into a list and taking out extra info
-    lst = stuff.split('\n')
-    lst = lst[1:-1]
-    counter = 0
-    print lst; 
+    #Turning data into a list and taking out extra info at the beginning and end
+    split_occ = occ_lstf.split('\n')
+    split_occ = occ_lst[1:-1]
     #print lst
-    #print "\n"
 
     #iterating through the list of occupations and percentages 
     while i < len(lst) :
         #item consists of one occupation and its percentage
         item = lst[i]
-
-        #when the occupation is between quotations, everything inside the quotes is the job title. The percentage is after the comma after the closing quotation. 
+        
+        #when the occupation is between quotations, everything inside the quotes is the job title. The percentage is after the comma after the closing quotation.
         if item[0] == '"' :
             item = item[1:]
             pos = item.find('"')
@@ -35,6 +34,7 @@ def ret_occ():
             percent = item[pos+2:]
             #print "title: " + title
             #print "percent: " + percent
+            
         #in other cases, the job title is before the comma and the percentage comes after. 
         else:
            pos = item.find(',')
@@ -48,8 +48,8 @@ def ret_occ():
 
         #Adding to the occupations dictionary:
         #Each key is the name of the occupation
-        #Each key has a value of a list that has an upper and lower bound for the percentage value
-        #i.e. for management, it looks like this: 'management':[0, 6.1]
+        #Each key has a value of a list that has the actual percentage, and an upper and lower bound for the percentage value
+        #i.e. for management, it looks like this: 'management':[6.1, 0, 6.1]
         occupations[title] = [percent, counter, counter+percent]
         i +=1
         counter += percent

@@ -12,7 +12,9 @@ import random_selector
 
 
 #assign following fxn to run when root route requested 
-@app.route("/") 
+@app.route("/")
+
+#"Home" page the user sees 
 def hello_world():
     retStr = ""
     retStr += "<center>Hello, nice to meet you! Click on the picture for some occupations information!<br>" 
@@ -26,7 +28,9 @@ occupations={}
 
 
 def test_tmplt():
-    occupations = random_selector.ret_occ() 
+    #Grabs the dictionary of occupations from random_selector.py 
+    occupations = random_selector.ret_occ()
+    
     return render_template('occupations_template.html', occupations = occupations, Job = 'Job Class', Percentage = 'Percentage', rand_occ=random_selector.rand_selector())
 
 
