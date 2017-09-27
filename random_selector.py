@@ -17,14 +17,14 @@ def ret_occ():
     occ_lst = f.read();
 
     #Turning data into a list and taking out extra info at the beginning and end
-    split_occ = occ_lstf.split('\n')
-    split_occ = occ_lst[1:-1]
-    #print lst
+    split_occ = occ_lst.split('\n')
+    split_occ = split_occ[1:-1]
+    #print occ_lst
 
     #iterating through the list of occupations and percentages 
-    while i < len(lst) :
+    while i < len(split_occ) :
         #item consists of one occupation and its percentage
-        item = lst[i]
+        item = split_occ[i]
         
         #when the occupation is between quotations, everything inside the quotes is the job title. The percentage is after the comma after the closing quotation.
         if item[0] == '"' :
