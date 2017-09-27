@@ -17,8 +17,7 @@ def hello_world():
     retStr = ""
     retStr += "<center>Hello, nice to meet you! Click on the picture for some occupations information!<br>" 
     retStr += "<a href = /occupations>"
-    retStr += "<img src = /static/quokka.jpg> </a> <br>  </center>" 
-    
+    retStr += "<img src = /static/quokka.jpg> </a> <br>  </center>"     
     return retStr
 
 
@@ -34,3 +33,5 @@ def test_tmplt():
 if __name__ == "__main__":
     app.debug = True
     app.run()
+
+
