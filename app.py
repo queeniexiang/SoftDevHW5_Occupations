@@ -4,11 +4,11 @@ SoftDev1 pd7
 HW5 -- Jinja Tuning
 2017-09-26
 """
-
+from util import random_selector
+#import util.random_selector
 import random
 from flask import Flask, render_template
 app = Flask(__name__)
-import random_selector
 
 
 #assign following fxn to run when root route requested 
